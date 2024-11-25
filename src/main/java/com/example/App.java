@@ -3,7 +3,8 @@ package com.example;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -12,12 +13,22 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Hello JavaFX with Maven!");
 
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(event -> System.out.println("Hello World!"));
+        Button btnHello = new Button();
+        btnHello.setText("Say 'Hello World'");
+        btnHello.setOnAction(event -> System.out.println("Hello World!"));
 
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        TextField textField = new TextField();
+        textField.setPromptText("Enter your text here");
+
+        Button btnDisplayText = new Button();
+        btnDisplayText.setText("Display Text");
+        btnDisplayText.setOnAction(event -> {
+            String inputText = textField.getText();
+            System.out.println("Entered Text: " + inputText);
+        });
+
+        VBox root = new VBox(10);
+        root.getChildren().addAll(btnHello, textField, btnDisplayText);
 
         Scene scene = new Scene(root, 300, 250);
         primaryStage.setScene(scene);
