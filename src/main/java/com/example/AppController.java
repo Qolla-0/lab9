@@ -1,15 +1,19 @@
 package com.example;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 public class AppController {
 
     @FXML
-    private Button button;
+    private JFXButton stylishButton1;
 
     @FXML
-    public void handleButtonClick() {
-        System.out.println("Button clicked!");
+    private JFXButton stylishButton2;
+
+    @FXML
+    public void initialize() {
+        stylishButton1.setOnAction(event -> System.out.println("Stylish Button 1 Clicked!"));
+        stylishButton2.setOnAction(event -> System.out.println("Stylish Button 2 Clicked!"));
     }
 }
